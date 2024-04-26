@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import MaxWidthWrapper from "@/components/MaxWidthWrapper.tsx/MaxWidthWrapper";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Phone from "@/components/Phone";
 import { Check, Star } from "lucide-react";
 
 export default function Home() {
@@ -12,7 +13,11 @@ export default function Home() {
               <div className="absolute w-28 left-0 -top-20 hidden lg:block">
                 {/* i forgot this div right here in the video, it's purely visual gradient and looks nice */}
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t via-slate-50/50 from-slate-50 h-28" />
-                <img src="/ecom-1-removebg.png" className="w-full" />
+                <img
+                  src="/ecom-1-removebg.png"
+                  alt="hero-image"
+                  className="w-full"
+                />
               </div>
               <h1 className="relative w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl">
                 Your Image on a{" "}
@@ -62,12 +67,12 @@ export default function Home() {
                   />
                   <img
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-4.png"
+                    src="/users/user-4.jpg"
                     alt="user image"
                   />
                   <img
                     className="inline-block object-cover h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-5.png"
+                    src="/users/user-5.jpg"
                     alt="user image"
                   />
                 </div>
@@ -87,6 +92,22 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="col-span-full lg:col-span-1 w-full flex justify-center px-8 sm:px-16 md:px-0 mt-32 lg:mx-0 lg:mt-20 h-fit">
+            <div className="relative md:max-w-xl">
+              <img
+                src="/your-image.png"
+                className="absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block"
+                alt=""
+              />
+              <img
+                src="/line.png"
+                alt=""
+                className="absolute w-20 -left-6 -bottom-6 select-none"
+              />
+              <Phone className="w-64" imgSrc="/testimonials/1.jpg" />
             </div>
           </div>
         </MaxWidthWrapper>
