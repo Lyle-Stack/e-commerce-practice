@@ -1,22 +1,49 @@
 "use client";
 
+import { Progress } from "@/components/ui/progress";
+import { useUploadThing } from "@/lib/uploadthing";
 import { cn } from "@/lib/utils";
 import { Image, Loader2, MousePointerSquareDashed } from "lucide-react";
-import { useState } from "react";
-import Dropzone from "react-dropzone";
+import { useRouter } from "next/navigation";
+import { useState, useTransition } from "react";
+import Dropzone, { FileRejection } from "react-dropzone";
 
 const Page = () => {
   const [isDragOver, setIsDragOver] = useState<boolean>(false);
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
+  const router = useRouter();
 
-  const isUploading = false;
+  const { startUpload, isUploading } = useUploadThing("imageUploader", {
+    onClientUploadComplete: ([data]) => {
+      const configId = data.serverData.configId;
+      startTransition(() => {
+        router.push(`/configure/design?id=${configId}`);
+      });
+    },
+    onUploadProgress(p) {
+      setUploadProgress(p);
+    },
+  });
 
-  const onDropRejected = () => {
-    console.log("onDropRejected");
+  const onDropRejected = (rejectedFiles: FileRejection[]) => {
+    const [file] = rejectedFiles;
+
+    setIsDragOver(false);
+
+    console.log({
+      title: `${file.file.type} file extension is not supported.`,
+      description: "Please choose a PNG, JPG, or JPEG image instead.",
+      variant: "destructive",
+    });
   };
 
-  const onDropAccepted = () => {
-    console.log("onDropAccepted");
+  const onDropAccepted = (acceptedFiles: File[]) => {
+    startUpload(acceptedFiles, { configId: undefined });
+
+    setIsDragOver(false);
   };
+
+  const [isPending, startTransition] = useTransition();
 
   return (
     <div
@@ -47,11 +74,39 @@ const Page = () => {
               <input {...getInputProps()} />
               {isDragOver ? (
                 <MousePointerSquareDashed className="mb-2 h-6 w-6 text-zinc-500" />
-              ) : isUploading ? (
+              ) : isUploading || isPending ? (
                 <Loader2 className="mb-2 h-6 w-6 animate-spin text-zinc-500" />
               ) : (
                 // eslint-disable-next-line jsx-a11y/alt-text
                 <Image className="mb-2 h-6 w-6 text-zinc-500" />
+              )}
+              <div className="mb-2 flex flex-col justify-center text-sm text-zinc-700">
+                {isUploading ? (
+                  <div className="flex flex-col items-center">
+                    <p>Uploading...</p>
+                    <Progress
+                      value={uploadProgress}
+                      className="mt-2 h-2 w-40 bg-gray-300"
+                    />
+                  </div>
+                ) : isPending ? (
+                  <div className="flex flex-col items-center">
+                    <p>Redirecting, please wait...</p>
+                  </div>
+                ) : isDragOver ? (
+                  <p>
+                    <span className="font-semibold">Drop file</span> to upload
+                  </p>
+                ) : (
+                  <p>
+                    <span className="font-semibold">Click to upload</span> or
+                    drag and drop
+                  </p>
+                )}
+              </div>
+
+              {isPending ? null : (
+                <p className="text-xs text-zinc-500">PNG, JPG, JPEG</p>
               )}
             </div>
           )}
