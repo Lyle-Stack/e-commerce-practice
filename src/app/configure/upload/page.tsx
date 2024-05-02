@@ -1,6 +1,7 @@
 "use client";
 
 import { Progress } from "@/components/ui/progress";
+import { useToast } from "@/hooks/use-toast";
 import { useUploadThing } from "@/lib/uploadthing";
 import { cn } from "@/lib/utils";
 import { Image, Loader2, MousePointerSquareDashed } from "lucide-react";
@@ -9,6 +10,7 @@ import { useState, useTransition } from "react";
 import Dropzone, { FileRejection } from "react-dropzone";
 
 const Page = () => {
+  const { toast } = useToast();
   const [isDragOver, setIsDragOver] = useState<boolean>(false);
   const [uploadProgress, setUploadProgress] = useState<number>(0);
   const router = useRouter();
@@ -30,7 +32,7 @@ const Page = () => {
 
     setIsDragOver(false);
 
-    console.log({
+    toast({
       title: `${file.file.type} file extension is not supported.`,
       description: "Please choose a PNG, JPG, or JPEG image instead.",
       variant: "destructive",
