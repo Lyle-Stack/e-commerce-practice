@@ -1,11 +1,18 @@
 "use client";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { cn } from "@/lib/utils";
 import NextImage from "next/image";
 import { useRef, useState } from "react";
 import { useUploadThing } from "@/lib/uploadthing";
-import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
+import {
+  COLORS,
+  FINISHES,
+  MATERIALS,
+  MODELS,
+} from "@/validators/option-validator";
 
 interface DesignConfiguratorProps {
   configId: string;
@@ -19,7 +26,18 @@ const DesignConfigurator = ({
   imageDimensions,
 }: DesignConfiguratorProps) => {
   const { toast } = useToast();
-  const router = useRouter();
+
+  const [options, setOptions] = useState<{
+    color: (typeof COLORS)[number];
+    model: (typeof MODELS.options)[number];
+    material: (typeof MATERIALS.options)[number];
+    finish: (typeof FINISHES.options)[number];
+  }>({
+    color: COLORS[0],
+    model: MODELS.options[0],
+    material: MATERIALS.options[0],
+    finish: FINISHES.options[0],
+  });
 
   const [renderedDimension, setRenderedDimension] = useState({
     width: imageDimensions.width / 4,
@@ -114,10 +132,26 @@ const DesignConfigurator = ({
             <NextImage
               fill
               alt="phone image"
-              src="/iphone-16-pro-template-dark-edges.png"
+              src="/iphone-16-pro-template.png"
               className="pointer-events-none z-50 select-none"
             />
           </AspectRatio>
+          <div className="absolute inset-0 bottom-px left-[3px] right-[3px] top-px z-40 rounded-[32px] shadow-[0_0_0_99999px_rgba(229,231,235,0.6)]" />
+          <div
+            className={cn(
+              "absolute inset-0 bottom-px left-[3px] right-[3px] top-px rounded-[32px]",
+              `bg-${options.color.tw}`,
+            )}
+          />
+        </div>
+
+        <div className="relative h-full w-full">
+          <NextImage
+            src={imageUrl}
+            fill
+            alt="your image"
+            className="pointer-events-none"
+          />
         </div>
       </div>
     </div>
