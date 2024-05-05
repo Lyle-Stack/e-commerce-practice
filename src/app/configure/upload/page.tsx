@@ -75,14 +75,14 @@ const Page = () => {
             >
               <input {...getInputProps()} />
               {isDragOver ? (
-                <MousePointerSquareDashed className="mb-2 h-6 w-6 text-zinc-500" />
+                <MousePointerSquareDashed className="mb-2 h-6 w-6 text-stone-500" />
               ) : isUploading || isPending ? (
-                <Loader2 className="mb-2 h-6 w-6 animate-spin text-zinc-500" />
+                <Loader2 className="mb-2 h-6 w-6 animate-spin text-stone-500" />
               ) : (
                 // eslint-disable-next-line jsx-a11y/alt-text
-                <Image className="mb-2 h-6 w-6 text-zinc-500" />
+                <Image className="mb-2 h-6 w-6 text-stone-500" />
               )}
-              <div className="mb-2 flex flex-col justify-center text-sm text-zinc-700">
+              <div className="mb-2 flex flex-col justify-center text-sm text-stone-700">
                 {isUploading ? (
                   <div className="flex flex-col items-center">
                     <p>Uploading...</p>
@@ -108,7 +108,7 @@ const Page = () => {
               </div>
 
               {isPending ? null : (
-                <p className="text-xs text-zinc-500">PNG, JPG, JPEG</p>
+                <p className="text-xs text-stone-500">PNG, JPG, JPEG</p>
               )}
             </div>
           )}

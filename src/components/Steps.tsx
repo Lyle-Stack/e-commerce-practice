@@ -39,9 +39,9 @@ const Steps = () => {
             <div>
               <span
                 className={cn(
-                  "absolute left-0 top-0 h-full w-1 bg-zinc-400 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full",
+                  "absolute left-0 top-0 h-full w-1 bg-stone-400 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full",
                   {
-                    "bg-zinc-700": isCurrent,
+                    "bg-stone-700": isCurrent,
                     "bg-primary": isCompleted,
                   },
                 )}
@@ -61,7 +61,7 @@ const Steps = () => {
                       "flex h-20 w-20 items-center justify-center object-contain",
                       {
                         "border-none": isCompleted,
-                        "border-zinc-700": isCurrent,
+                        "border-stone-700": isCurrent,
                       },
                     )}
                     alt="Your Image"
@@ -70,14 +70,14 @@ const Steps = () => {
 
                 <span className="ml-4 mt-0.5 flex h-full min-w-0 flex-col justify-center">
                   <span
-                    className={cn("text-sm font-semibold text-zinc-700", {
+                    className={cn("text-sm font-semibold text-stone-700", {
                       "text-primary": isCompleted,
-                      "text-zinc-700": isCurrent,
+                      "text-stone-700": isCurrent,
                     })}
                   >
                     {step.name}
                   </span>
-                  <span className="text-sm text-zinc-500">
+                  <span className="text-sm text-stone-500">
                     {step.description}
                   </span>
                 </span>
