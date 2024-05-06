@@ -7,6 +7,14 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    "bg-blue-950",
+    "border-blue-950",
+    "bg-stone-900",
+    "border-stone-900",
+    "bg-rose-950",
+    "border-rose-950",
+  ],
   theme: {
     extend: {
       colors: {

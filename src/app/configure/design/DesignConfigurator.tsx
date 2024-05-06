@@ -14,7 +14,8 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import HandleComponent from "@/components/HandleComponent";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Label, RadioGroup } from "@headlessui/react";
+import { RadioGroup } from "@headlessui/react";
+import { Label } from "@/components/ui/label";
 
 interface DesignConfiguratorProps {
   configId: string;
