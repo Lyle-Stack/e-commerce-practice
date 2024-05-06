@@ -13,6 +13,8 @@ import {
 } from "@/validators/option-validator";
 import { useToast } from "@/hooks/use-toast";
 import HandleComponent from "@/components/HandleComponent";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Label, RadioGroup } from "@headlessui/react";
 
 interface DesignConfiguratorProps {
   configId: string;
@@ -115,6 +117,62 @@ const DesignConfigurator = ({
             />
           </div>
         </Rnd>
+      </div>
+
+      <div className="col-span-full flex h-[37.5rem] w-full flex-col bg-white lg:col-span-1">
+        <ScrollArea className="relative flex-1 overflow-auto">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-12 bg-gradient-to-t from-white"
+          />
+
+          <div className="px-8 pb-12 pt-8">
+            <h2 className="text-3xl font-bold tracking-tight">
+              Customize your case
+            </h2>
+
+            <div className="my-6 h-px w-full bg-zinc-200" />
+
+            <div className="relative mt-4 flex h-full flex-col justify-between">
+              <div className="flex flex-col gap-6">
+                <RadioGroup
+                  value={options.color}
+                  onChange={(val) => {
+                    setOptions((prev) => ({
+                      ...prev,
+                      color: val,
+                    }));
+                  }}
+                >
+                  <Label>Color: {options.color.label}</Label>
+                  <div className="mt-3 flex items-center space-x-3">
+                    {COLORS.map((color) => (
+                      <RadioGroup.Option
+                        key={color.label}
+                        value={color}
+                        className={({ active, checked }) =>
+                          cn(
+                            "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full border-2 border-transparent p-0.5 focus:outline-none focus:ring-0 active:outline-none active:ring-0",
+                            {
+                              [`border-${color.tw}`]: active || checked,
+                            },
+                          )
+                        }
+                      >
+                        <span
+                          className={cn(
+                            `bg-${color.tw}`,
+                            "h-8 w-8 rounded-full border border-black border-opacity-10",
+                          )}
+                        />
+                      </RadioGroup.Option>
+                    ))}
+                  </div>
+                </RadioGroup>
+              </div>
+            </div>
+          </div>
+        </ScrollArea>
       </div>
     </div>
   );
