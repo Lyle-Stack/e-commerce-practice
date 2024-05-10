@@ -230,7 +230,7 @@ const DesignConfigurator = ({
               Customize your case
             </h2>
 
-            <div className="my-6 h-px w-full bg-zinc-200" />
+            <div className="my-6 h-px w-full bg-stone-200" />
 
             <div className="relative mt-4 flex h-full flex-col justify-between">
               <div className="flex flex-col gap-6">
@@ -287,9 +287,9 @@ const DesignConfigurator = ({
                         <DropdownMenuItem
                           key={model.label}
                           className={cn(
-                            "flex cursor-default items-center gap-1 p-1.5 text-sm hover:bg-zinc-100",
+                            "flex cursor-default items-center gap-1 p-1.5 text-sm hover:bg-stone-100",
                             {
-                              "bg-zinc-100":
+                              "bg-stone-100":
                                 model.label === options.model.label,
                             },
                           )}
@@ -334,7 +334,7 @@ const DesignConfigurator = ({
                             value={option}
                             className={({ active, checked }) =>
                               cn(
-                                "relative block cursor-pointer rounded-lg border-2 border-zinc-200 bg-white px-6 py-4 shadow-sm outline-none ring-0 focus:outline-none focus:ring-0 sm:flex sm:justify-between",
+                                "relative block cursor-pointer rounded-lg border-2 border-stone-200 bg-white px-6 py-4 shadow-sm outline-none ring-0 focus:outline-none focus:ring-0 sm:flex sm:justify-between",
                                 {
                                   "border-primary": active || checked,
                                 },
@@ -383,7 +383,7 @@ const DesignConfigurator = ({
         </ScrollArea>
 
         <div className="h-16 w-full bg-white px-8">
-          <div className="h-px w-full bg-zinc-200" />
+          <div className="h-px w-full bg-stone-200" />
           <div className="flex h-full w-full items-center justify-end">
             <div className="flex w-full items-center gap-6">
               <p className="whitespace-nowrap font-medium">
