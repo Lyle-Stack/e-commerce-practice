@@ -13,14 +13,18 @@ import { useEffect, useState } from "react";
 import Confetti from "react-dom-confetti";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import LoginModal from "@/components/LoginModal";
 
 const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
   const router = useRouter();
   const { toast } = useToast();
   const { id } = configuration;
+  const { user } = useKindeBrowserClient();
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
 
   const [showConfetti, setShowConfetti] = useState<boolean>(false);
-  useEffect(() => setShowConfetti(true));
+  useEffect(() => setShowConfetti(true), []);
 
   const { color, model, finish, material } = configuration;
 
@@ -54,8 +58,14 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
   });
 
   const handleCheckout = () => {
-    // create payment session
-    createPaymentSession({ configId: id });
+    if (user) {
+      // create payment session
+      createPaymentSession({ configId: id });
+    } else {
+      // need to log in
+      localStorage.setItem("configurationId", id);
+      setIsLoginModalOpen(true);
+    }
   };
 
   return (
@@ -69,6 +79,8 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
           config={{ elementCount: 200, spread: 90 }}
         />
       </div>
+
+      <LoginModal isOpen={isLoginModalOpen} setIsOpen={setIsLoginModalOpen} />
 
       <div className="mt-20 flex flex-col items-center text-sm sm:grid-cols-12 sm:grid-rows-1 sm:gap-x-6 md:grid md:gap-x-8 lg:gap-x-12">
         <div className="md:col-span-4 md:row-span-2 md:row-end-2 lg:col-span-3">
@@ -91,8 +103,8 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
         <div className="text-base sm:col-span-12 md:col-span-9">
           <div className="grid grid-cols-1 gap-y-8 border-b border-gray-200 py-8 sm:grid-cols-2 sm:gap-x-6 sm:py-6 md:py-10">
             <div>
-              <p className="font-medium text-zinc-950">Highlights</p>
-              <ol className="mt-3 list-inside list-disc text-zinc-700">
+              <p className="font-medium text-stone-950">Highlights</p>
+              <ol className="mt-3 list-inside list-disc text-stone-700">
                 <li>Wireless charging compatible</li>
                 <li>TPU shock absorption</li>
                 <li>Packaging made from recycled materials</li>
@@ -100,8 +112,8 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
               </ol>
             </div>
             <div>
-              <p className="font-medium text-zinc-950">Materials</p>
-              <ol className="mt-3 list-inside list-disc text-zinc-700">
+              <p className="font-medium text-stone-950">Materials</p>
+              <ol className="mt-3 list-inside list-disc text-stone-700">
                 <li>High-quality, durable material</li>
                 <li>Scratch- and fingerprint resistant coating</li>
               </ol>
