@@ -18,8 +18,8 @@ const Page = () => {
   const { data } = useQuery({
     queryKey: ["auth-callback"],
     queryFn: async () => await getAuthStatus(),
-    retry: true,
-    retryDelay: 500,
+    retry: 10,
+    retryDelay: 800,
   });
 
   if (data?.success) {
