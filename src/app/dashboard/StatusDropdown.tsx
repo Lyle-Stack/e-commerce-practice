@@ -9,7 +9,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { OrderStatus } from "@prisma/client";
+import { useMutation } from "@tanstack/react-query";
 import { Check, ChevronsUpDown } from "lucide-react";
+import { changeOrderStatus } from "./actions";
+import { useRouter } from "next/navigation";
 
 const LABEL_MAP: Record<keyof typeof OrderStatus, string> = {
   awaiting_shipment: "Awaiting Shipment",
@@ -18,11 +21,20 @@ const LABEL_MAP: Record<keyof typeof OrderStatus, string> = {
 };
 
 const StatusDropdown = ({
+  id,
   orderStatus,
 }: {
   id: string;
   orderStatus: OrderStatus;
 }) => {
+  const router = useRouter();
+
+  const { mutate } = useMutation({
+    mutationKey: ["change-order-status"],
+    mutationFn: changeOrderStatus,
+    onSuccess: () => router.refresh(),
+  });
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -39,12 +51,12 @@ const StatusDropdown = ({
           <DropdownMenuItem
             key={status}
             className={cn(
-              "flex cursor-default items-center gap-1 p-2.5 text-sm hover:bg-zinc-100",
+              "flex cursor-default items-center gap-1 p-2.5 text-sm hover:bg-stone-100",
               {
-                "bg-zinc-100": orderStatus === status,
+                "bg-stone-100": orderStatus === status,
               },
             )}
-            onClick={() => {}}
+            onClick={() => mutate({ id, newStatus: status as OrderStatus })}
           >
             <Check
               className={cn(

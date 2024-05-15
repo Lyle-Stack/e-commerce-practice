@@ -35,7 +35,7 @@ const PhonePreview = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref.current]);
 
-  let caseBackgroundColor = "bg-zinc-950";
+  let caseBackgroundColor = "bg-stone-950";
   if (color === "blue") caseBackgroundColor = "bg-blue-950";
   if (color === "rose") caseBackgroundColor = "bg-rose-950";
 
