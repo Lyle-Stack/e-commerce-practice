@@ -38,8 +38,25 @@
 ## Some Cool View
 
 ![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-1.png)
+
+---
+
 ![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-2.png)
+
+---
+
 ![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-3.png)
+
+---
+
 ![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-4.png)
+
+---
+
 ![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-5.png)
+
+---
+
 ![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-6.png)
+
+---
