@@ -1,46 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## E-Commerce Practice Project
 
-## Getting Started
+**This project is for practicing, and learning more technique**
 
-First, run the development server:
+> The design and idea is from [Josh tried coding on YouTube](https://www.youtube.com/watch?v=SG82Aqcaaa0)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Tech/Package
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Next.js 14
+- React.js
+- React-Query
+- TailwindCSS / ShadCN ui
+- Prisma ORM
+- zod
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Third Party Service
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Stripe for payment
+- Neon PostgreSQL
+- kinde for Auth
+- Resend for email service
+- uploadthing for image uploading service
 
-## Learn More
+### Other Fun Package
 
-To learn more about Next.js, take a look at the following resources:
+- react-dropzone
+- react-dom-confetti
+- react-rnd
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Free Photo Download From...
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Photo by <a href="https://unsplash.com/@timmossholder?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Tim Mossholder</a> on <a href="https://unsplash.com/photos/a-man-with-a-white-beard-and-mustache-wearing-a-hat-FRPbQvAwY10?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Photo by <a href="https://unsplash.com/@gasparzaldo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">gaspar zaldo</a> on <a href="https://unsplash.com/photos/a-woman-sitting-on-a-white-bench-smiling-SWcKBBRjEIM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Photo by <a href="https://unsplash.com/@nathananderson?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Nathan Anderson</a> on <a href="https://unsplash.com/photos/woman-in-black-tank-top-sitting-on-red-boat-during-daytime-SMvspXWz6WI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Photo by <a href="https://unsplash.com/@p_kuzovkova?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Polina Kuzovkova</a> on <a href="https://unsplash.com/photos/a-person-holding-a-plate-of-food-voUYQjTFNWw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Photo by <a href="https://unsplash.com/@benwhitephotography?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ben White</a> on <a href="https://unsplash.com/photos/boy-sitting-on-bench-while-holding-a-book-4K2lIP0zc_k?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-## Deploy on Vercel
+## Some Cool View
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-<!-- Photo by <a href="https://unsplash.com/@timmossholder?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Tim Mossholder</a> on <a href="https://unsplash.com/photos/a-man-with-a-white-beard-and-mustache-wearing-a-hat-FRPbQvAwY10?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> -->
-
-<!-- Photo by <a href="https://unsplash.com/@gasparzaldo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">gaspar zaldo</a> on <a href="https://unsplash.com/photos/a-woman-sitting-on-a-white-bench-smiling-SWcKBBRjEIM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> -->
-
-<!-- Photo by <a href="https://unsplash.com/@nathananderson?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Nathan Anderson</a> on <a href="https://unsplash.com/photos/woman-in-black-tank-top-sitting-on-red-boat-during-daytime-SMvspXWz6WI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> -->
-
-<!-- Photo by <a href="https://unsplash.com/@p_kuzovkova?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Polina Kuzovkova</a> on <a href="https://unsplash.com/photos/a-person-holding-a-plate-of-food-voUYQjTFNWw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> -->
-
-<!-- Photo by <a href="https://unsplash.com/@benwhitephotography?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ben White</a> on <a href="https://unsplash.com/photos/boy-sitting-on-bench-while-holding-a-book-4K2lIP0zc_k?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> -->
+![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-1.png)
+![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-2.png)
+![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-3.png)
+![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-4.png)
+![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-5.png)
+![Project Image](https://github.com/Lyle-Stack/e-commerce-practice/blob/main/public/readme/readme-6.png)
